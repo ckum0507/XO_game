@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>XO — LAN Game</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>XO — LAN Game</h1>
+      <div class="header-controls">
+        <div class="theme-control">
+          <button id="themeBtn" class="theme-btn" aria-haspopup="true" aria-expanded="false">Theme ▾</button>
+          <div id="themeMenu" class="theme-menu" role="menu" aria-hidden="true">
+            <button class="theme-option" data-theme="light" role="menuitem">Light</button>
+            <button class="theme-option" data-theme="dark" role="menuitem">Dark</button>
+            <button class="theme-option" data-theme="dark-blue" role="menuitem">Dark Blue</button>
+            <button class="theme-option" data-theme="solar" role="menuitem">Solar</button>
+            <button class="theme-option" data-theme="forest" role="menuitem">Forest</button>
+            <button class="theme-option" data-theme="sunset" role="menuitem">Sunset</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="joinPanel" class="join-panel">
+      <input id="nameInput" placeholder="Enter your name" maxlength="20" />
+      <button id="joinBtn" type="button">Join Game</button>
+      <button id="leaveBtn" type="button" style="display:none;">Leave</button>
+      <div class="small">Your client-id: <span id="cid"></span></div>
+    </div>
+
+    <div id="lobby" class="lobby" style="display:none;">
+      <h2>Lobby — Connected Clients</h2>
+      <div id="clientsList"></div>
+
+      <div class="controls">
+        <button id="clearSessionsBtn" type="button">Clear Sessions</button>
+        <button id="resetBtn" type="button">Reset Board (keep players)</button>
+      </div>
+
+      <hr />
+      <div id="gameArea" style="display:block;">
+        <h3>Game</h3>
+        <div id="info" class="info-row">
+          <div>Symbol: <span id="mysym">-</span></div>
+          <div>Name: <span id="myname">-</span></div>
+          <div>Turn: <span id="turn">-</span></div>
+          <div>Winner: <span id="winner">-</span></div>
+        </div>
+
+        <div id="board" class="board" aria-label="Game board" role="grid">
+          <div class="cell" data-pos="0" role="gridcell"></div>
+          <div class="cell" data-pos="1" role="gridcell"></div>
+          <div class="cell" data-pos="2" role="gridcell"></div>
+          <div class="cell" data-pos="3" role="gridcell"></div>
+          <div class="cell" data-pos="4" role="gridcell"></div>
+          <div class="cell" data-pos="5" role="gridcell"></div>
+          <div class="cell" data-pos="6" role="gridcell"></div>
+          <div class="cell" data-pos="7" role="gridcell"></div>
+          <div class="cell" data-pos="8" role="gridcell"></div>
+        </div>
+
+        <div id="placements" class="placements">
+          <h4>Placements (oldest → newest)</h4>
+          <div>X: <span id="xlist"></span></div>
+          <div>O: <span id="olist"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">Open this page on multiple devices to play across LAN.</p>
+  </div>
+
+  <div id="xoModalOverlay" class="xo-modal-overlay" aria-hidden="true">
+    <div id="xoModal" class="xo-modal" role="dialog" aria-modal="true">
+      <div id="confettiContainer" class="confetti" aria-hidden="true"></div>
+      <h2 id="xoModalTitle">Winner!</h2>
+      <p id="xoModalMessage">You won!</p>
+      <button id="xoModalOk" class="ok-btn">OK</button>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
