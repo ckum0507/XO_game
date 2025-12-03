@@ -105,8 +105,10 @@ pkg update
 pkg install python git tmux
 ```
 **3. Clone project**
-git clone https://github.com/<your-username>/XO_game.git
+```
+git clone https://github.com/ckum0507/XO_game.git
 cd XO_game
+```
 **4. Run**
 ```
 python app.py --host 0.0.0.0 --port 5000
