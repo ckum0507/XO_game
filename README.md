@@ -78,7 +78,7 @@ ________________________________________
 ### Installation & Running (Windows / Linux)
 1. Clone repository
 ```
-git clone https://github.com/<your-username>/XO_game.git
+git clone https://github.com/ckum0507/XO_game.git
 cd XO_game
 ```
 2. Install dependencies
